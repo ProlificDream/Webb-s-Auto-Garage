@@ -1,0 +1,16 @@
+{
+  "name": "ironclad-auto-site",
+  "version": "1.0.0",
+  "description": "Auto garage website with appointment booking and a parts/products shop.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

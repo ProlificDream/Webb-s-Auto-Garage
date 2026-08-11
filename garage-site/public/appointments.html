@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Appointment — Ironclad Auto</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot">●</span> IRONCLAD AUTO</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="appointments.html">Book a Bay</a></li>
+      <li><a href="shop.html">Parts Counter</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<section class="section" style="max-width:820px;">
+  <div class="section-head">
+    <div class="eyebrow mono">Reserve a bay</div>
+    <h2>Book an Appointment</h2>
+    <p>Fill out the work order below. We'll confirm your slot by phone or email — no payment needed to book.</p>
+  </div>
+
+  <div id="banner" class="status-banner"></div>
+
+  <div class="ticket" style="padding:2rem;">
+    <div class="ticket-head">
+      <strong>WORK ORDER — NEW REQUEST</strong>
+      <span class="no mono" id="ticket-preview">#PENDING</span>
+    </div>
+
+    <form id="apt-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Full name *</label>
+          <input id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input id="phone" name="phone" required autocomplete="tel" type="tel">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="service_id">Service needed *</label>
+          <select id="service_id" name="service_id" required></select>
+        </div>
+        <div class="field">
+          <label for="vehicle_year">Vehicle year</label>
+          <input id="vehicle_year" name="vehicle_year" inputmode="numeric" placeholder="2018">
+        </div>
+        <div class="field">
+          <label for="vehicle_make">Vehicle make</label>
+          <input id="vehicle_make" name="vehicle_make" placeholder="Honda">
+        </div>
+        <div class="field">
+          <label for="vehicle_model">Vehicle model</label>
+          <input id="vehicle_model" name="vehicle_model" placeholder="Civic">
+        </div>
+        <div class="field">
+          <label for="preferred_date">Preferred date *</label>
+          <input id="preferred_date" name="preferred_date" type="date" required>
+        </div>
+        <div class="field">
+          <label for="preferred_time">Preferred time</label>
+          <input id="preferred_time" name="preferred_time" type="time">
+        </div>
+        <div class="field full">
+          <label for="notes">Notes — what's going on with the vehicle?</label>
+          <textarea id="notes" name="notes" placeholder="e.g. squeaking when braking, check-engine light on since Tuesday..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Request</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Ironclad Auto.</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="booking.js"></script>
+</body>
+</html>

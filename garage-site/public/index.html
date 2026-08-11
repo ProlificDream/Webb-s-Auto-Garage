@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironclad Auto — Honest repair, straight talk</title>
+<meta name="description" content="Book a service appointment or order parts from Ironclad Auto.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot">●</span> IRONCLAD AUTO</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="appointments.html">Book a Bay</a></li>
+      <li><a href="shop.html">Parts Counter</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Est. shop &nbsp;·&nbsp; Independent &amp; family-run</div>
+      <h1>We fix it right the first time.</h1>
+      <p class="lede">Drop your car with us and get a clear diagnosis, an honest price, and a mechanic who'll actually explain what's wrong. Book a bay online or grab the parts you need from our counter.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="appointments.html">Book an Appointment</a>
+        <a class="btn" href="shop.html" style="border-color:#EDEBE3;color:#EDEBE3;">Shop Parts</a>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-head">
+        <strong>WORK ORDER</strong>
+        <span class="no mono">#APT-0142</span>
+      </div>
+      <div class="ticket-row"><span>CUSTOMER</span><span>J. Alvarez</span></div>
+      <div class="ticket-row"><span>VEHICLE</span><span>2018 Honda Civic</span></div>
+      <div class="ticket-row"><span>SERVICE</span><span>Brake Inspection</span></div>
+      <div class="ticket-row"><span>REQUESTED</span><span>Thu 2:30 PM</span></div>
+      <div class="ticket-row" style="border-bottom:none;"><span>STATUS</span><span style="color:#C1440E;font-weight:600;">Requested</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="services">
+  <div class="section-head">
+    <div class="eyebrow mono">What we do</div>
+    <h2>Services we book most</h2>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="service-icon">⛽</div>
+      <h3>Oil Changes</h3>
+      <p>Conventional, synthetic blend, or full synthetic — in and out in under 30 minutes.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🛞</div>
+      <h3>Brakes &amp; Tires</h3>
+      <p>Pads, rotors, rotation and balance. We'll show you the wear before we recommend anything.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🔧</div>
+      <h3>Diagnostics</h3>
+      <p>Check-engine light? We'll pull the codes and tell you what's actually going on, in plain English.</p>
+    </div>
+  </div>
+  <p style="margin-top:2rem;"><a class="btn" href="appointments.html">See all services &amp; book →</a></p>
+</section>
+
+<section class="section" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="grid-2">
+    <div>
+      <div class="eyebrow mono" style="color:var(--rust);">Book online</div>
+      <h2>Skip the phone tag.</h2>
+      <p>Tell us about your vehicle and what it needs. We'll confirm your time slot and have a bay ready when you pull in.</p>
+      <a class="btn btn-primary" href="appointments.html">Book an Appointment</a>
+    </div>
+    <div>
+      <div class="eyebrow mono" style="color:var(--rust);">Parts counter</div>
+      <h2>Need a part, not a mechanic?</h2>
+      <p>Order filters, fluids, wipers and more for pickup or delivery — no appointment required.</p>
+      <a class="btn btn-primary" href="shop.html">Shop the Counter</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-head">
+    <div class="eyebrow mono">Visit us</div>
+    <h2>Shop hours &amp; location</h2>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Hours</h3>
+      <p class="mono">Mon–Fri 7:30a–6:00p<br>Sat 8:00a–2:00p<br>Sun Closed</p>
+    </div>
+    <div class="card">
+      <h3>Address</h3>
+      <p>1420 Wrenchworks Ave<br>Your City, ST 00000</p>
+    </div>
+    <div class="card">
+      <h3>Phone</h3>
+      <p class="mono">(555) 019-4477</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Ironclad Auto. Built to keep you rolling.</span>
+    <span><a href="appointments.html">Book</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Dashboard — Ironclad Auto</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background:#fff; }
+  th, td { text-align: left; padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; color: var(--steel-mid); }
+  .key-form { display: flex; gap: 0.6rem; margin-bottom: 2rem; max-width: 420px; }
+  .key-form input { flex: 1; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot">●</span> IRONCLAD AUTO</a>
+    <ul class="nav-links"><li><a href="index.html">Back to site</a></li></ul>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow mono">Staff only</div>
+    <h2>Shop Dashboard</h2>
+    <p>Enter the admin key (set as <code>ADMIN_KEY</code> on the server) to view incoming appointment requests and orders.</p>
+  </div>
+
+  <form id="key-form" class="key-form">
+    <input id="admin-key" type="password" placeholder="Admin key" autocomplete="off">
+    <button type="submit" class="btn btn-primary">Load</button>
+  </form>
+
+  <div id="content" style="display:none;">
+    <h3>Appointment Requests</h3>
+    <div style="overflow-x:auto;margin-bottom:2.5rem;">
+      <table id="appt-table"><thead><tr>
+        <th>Ticket</th><th>Received</th><th>Name</th><th>Phone</th><th>Vehicle</th><th>Service</th><th>Preferred</th><th>Notes</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+
+    <h3>Orders</h3>
+    <div style="overflow-x:auto;">
+      <table id="order-table"><thead><tr>
+        <th>Order #</th><th>Received</th><th>Name</th><th>Email</th><th>Items</th><th>Total</th><th>Fulfillment</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <div id="error" style="display:none;color:var(--rust);margin-top:1rem;"></div>
+</section>
+
+<script>
+document.getElementById('key-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const key = document.getElementById('admin-key').value;
+  const errorEl = document.getElementById('error');
+  errorEl.style.display = 'none';
+  try {
+    const [apptsRes, ordersRes] = await Promise.all([
+      fetch('/api/admin/appointments', { headers: { 'x-admin-key': key } }),
+      fetch('/api/admin/orders', { headers: { 'x-admin-key': key } }),
+    ]);
+    if (!apptsRes.ok || !ordersRes.ok) throw new Error('Invalid admin key.');
+    const appts = await apptsRes.json();
+    const orders = await ordersRes.json();
+
+    document.querySelector('#appt-table tbody').innerHTML = appts.slice().reverse().map(a => `
+      <tr>
+        <td class="mono">${a.ticket}</td>
+        <td>${new Date(a.created_at).toLocaleString()}</td>
+        <td>${a.name}</td>
+        <td>${a.phone}</td>
+        <td>${[a.vehicle.year, a.vehicle.make, a.vehicle.model].filter(Boolean).join(' ')}</td>
+        <td>${a.service_name}</td>
+        <td>${a.preferred_date} ${a.preferred_time || ''}</td>
+        <td>${a.notes || ''}</td>
+      </tr>`).join('') || '<tr><td colspan="8">No appointment requests yet.</td></tr>';
+
+    document.querySelector('#order-table tbody').innerHTML = orders.slice().reverse().map(o => `
+      <tr>
+        <td class="mono">${o.order_number}</td>
+        <td>${new Date(o.created_at).toLocaleString()}</td>
+        <td>${o.name}</td>
+        <td>${o.email}</td>
+        <td>${o.items.map(i => `${i.name} ×${i.qty}`).join(', ')}</td>
+        <td>$${o.total.toFixed(2)}</td>
+        <td>${o.fulfillment}</td>
+      </tr>`).join('') || '<tr><td colspan="7">No orders yet.</td></tr>';
+
+    document.getElementById('content').style.display = 'block';
+  } catch (err) {
+    errorEl.textContent = err.message;
+    errorEl.style.display = 'block';
+    document.getElementById('content').style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

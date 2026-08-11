@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Ironclad Auto</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot">●</span> IRONCLAD AUTO</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="appointments.html">Book a Bay</a></li>
+      <li><a href="shop.html">Parts Counter <span class="nav-cart" id="cart-count">0</span></a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<section class="section" style="max-width:900px;">
+  <div class="section-head">
+    <div class="eyebrow mono">Almost done</div>
+    <h2>Checkout</h2>
+  </div>
+
+  <div id="banner" class="status-banner"></div>
+
+  <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:start;">
+    <div class="ticket" style="padding:2rem;">
+      <div class="ticket-head"><strong>ORDER FORM</strong><span class="no mono" id="order-preview">#PENDING</span></div>
+      <form id="order-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full name *</label>
+            <input id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="fulfillment">Pickup or delivery *</label>
+            <select id="fulfillment" name="fulfillment" required>
+              <option value="pickup">In-store pickup</option>
+              <option value="delivery">Local delivery</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Delivery address, special instructions, etc."></textarea>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--steel-mid);">Payment isn't collected online yet — you'll pay by card or cash when you pick up or receive your order.</p>
+        <button type="submit" class="btn btn-primary">Place Order</button>
+      </form>
+    </div>
+
+    <aside class="cart-panel">
+      <h3 style="color:var(--paper);margin-bottom:1rem;">Order Summary</h3>
+      <div id="cart-lines"></div>
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Ironclad Auto.</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>

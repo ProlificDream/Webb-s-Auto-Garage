@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parts Counter — Ironclad Auto</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot">●</span> IRONCLAD AUTO</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="appointments.html">Book a Bay</a></li>
+      <li><a href="shop.html">Parts Counter <span class="nav-cart" id="cart-count">0</span></a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow mono">Parts counter</div>
+    <h2>Order parts &amp; supplies</h2>
+    <p>Pick what you need, choose pickup or delivery at checkout, and we'll have it ready. Payment is arranged when you collect or receive the order — online card payment is coming soon.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:2.2fr 1fr;gap:2rem;align-items:start;">
+    <div class="grid-3" id="product-grid" style="grid-template-columns:repeat(2,1fr);"></div>
+
+    <aside class="cart-panel">
+      <h3 style="color:var(--paper);margin-bottom:1rem;">Your Cart</h3>
+      <div id="cart-lines"><p style="opacity:0.7;font-size:0.85rem;">Cart is empty.</p></div>
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <a class="btn btn-primary" href="checkout.html" style="display:block;text-align:center;width:100%;">Checkout</a>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Ironclad Auto.</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="appointments.html">Book</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>
