@@ -1,4 +1,4 @@
-# Ironclad Auto — Garage Website
+# Webb's Auto Garage — Garage Website
 
 A small Node.js website for an auto garage with two working flows:
 
